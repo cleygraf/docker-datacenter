@@ -71,19 +71,19 @@ Vagrant.configure(2) do |config|
   config.vm.define "docker1" do |docker1|
     #docker1.vm.network "forwarded_port", guest: 443,  host: 4430
     #docker1.vm.network "forwarded_port", guest: 8443, host: 4431
-    docker1.vm.synced_folder "scripts/", "/home/vagrant/sync/scripts"
+    docker1.vm.synced_folder "./", "/home/vagrant/sync"
     docker1.vm.provision "shell", path: "scripts/docker1.sh"
   end
 
   config.vm.define "docker2" do |docker2|
     #docker2.vm.network "forwarded_port", guest: 8443, host: 4432
-    docker2.vm.synced_folder "scripts/", "/home/vagrant/sync/scripts"
+    docker2.vm.synced_folder "./", "/home/vagrant/sync"
     docker2.vm.provision "shell", path: "scripts/docker2.sh"
   end
 
   config.vm.define "docker3" do |docker3|
     #docker3.vm.network "forwarded_port", guest: 8443, host: 4433
-    docker3.vm.synced_folder "scripts/", "/home/vagrant/sync/scripts"
+    docker3.vm.synced_folder "./", "/home/vagrant/sync"
     docker3.vm.provision "shell", path: "scripts/docker3.sh"
   end
 
