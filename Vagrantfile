@@ -65,7 +65,8 @@ Vagrant.configure(2) do |config|
   #config.vm.box = "bento/centos-7.2"
 
   config.vm.provider :virtualbox do |v|
-    v.customize ["modifyvm", :id, "--memory", 1792]
+    v.customize ["modifyvm", :id, "--memory", 4096]
+    v.customize ["modifyvm", :id, "--cpus", 2]
   end
 
   config.vm.define "docker1" do |docker1|
